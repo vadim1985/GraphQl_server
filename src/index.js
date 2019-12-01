@@ -4,16 +4,22 @@ import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 import { ApolloServer, AuthenticationError } from 'apollo-server-express';
 
+import sequelize from './config/postgresConnection'
+
 import schemas from './schemas';
 import resolvers from './resolvers';
 
 import userModel from './models/userModel';
 import chatMessageModel from './models/chatMessageModel';
 import userNotificationModel from './models/userNotificationModel';
+import counterpartyModel from './models/counterpartyModel';
+import counterpartyTypeModel from './models/counterpartyTypeModel'
 
 
 const app = express();
 app.use(cors());
+
+sequelize.authenticate()
 
 const getUser = async (req) => {
   const token = req.headers['token'];
@@ -38,6 +44,8 @@ const server = new ApolloServer({
           userModel,
           chatMessageModel,
           userNotificationModel,
+          counterpartyModel,
+          counterpartyTypeModel,
         },
       };
     }

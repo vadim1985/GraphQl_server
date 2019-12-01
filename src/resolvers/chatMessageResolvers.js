@@ -2,14 +2,14 @@ import { AuthenticationError } from 'apollo-server';
 
 export default {
   Query: {
-    userNotification: async (parent, { id }, { models: { chatMessageModel }, me }, info) => {
+    chatMessage: async (parent, { id }, { models: { chatMessageModel }, me }, info) => {
       if (!me) {
         throw new AuthenticationError('You are not authenticated');
       }
       const chatMessage = await chatMessageModel.findById({ _id: id }).exec();
       return chatMessage;
     },
-    userNotifications: async (parent, args, { models: { chatMessageModel }, me }, info) => {
+    chatMessages: async (parent, args, { models: { chatMessageModel }, me }, info) => {
       if (!me) {
         throw new AuthenticationError('You are not authenticated');
       }
