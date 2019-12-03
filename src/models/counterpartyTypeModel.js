@@ -1,16 +1,13 @@
-import Sequelize from 'sequelize'
-import postgresConnection from '../config/postgresConnection'
+import Sequelize from 'sequelize';
+import postgresConnection from '../config/postgresConnection';
+const sequelize = postgresConnection.getSequelize();
 
-const Model = Sequelize.Model
-class СounterpartyType extends Model {}
-СounterpartyType.init({
-    name: {
+export default sequelize.define('CounterpartyType', {
+  name: {
     type: Sequelize.STRING,
     allowNull: false
   }
 }, {
-  sequelize: postgresConnection.getSequelize(),
-  modelName: 'СounterpartyType'
+  freezeTableName: true,
+  timestamps: false
 });
-
-export default СounterpartyType;

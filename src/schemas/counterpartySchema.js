@@ -4,7 +4,7 @@ export default gql`
   type Counterparty {
     id: Int!
     name: String!
-    INN: Int!
+    INN: String!
     type: CounterpartyType!
   }
 
@@ -14,6 +14,6 @@ export default gql`
   }
 
   extend type Mutation {
-    createCounterparty(name: String!, INN: Int!, counterpartyTypeId: Int!): Counterparty!
+    createCounterparty(name: String!, INN: String!, counterpartyTypeId: Int!): Counterparty!
   }
 `;
