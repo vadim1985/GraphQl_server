@@ -1,6 +1,9 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { AuthenticationError } from 'apollo-server';
+import Sequelize from 'sequelize';
+
+const Op = Sequelize.Op;
 
 export default {
   Query: {
@@ -44,6 +47,10 @@ export default {
     },
     userNotification: async ({ id }, args, { models: { userNotificationModel } }, info) => {
       const userNotification = await userNotificationModel.find({ author: id }).exec();
+      return userNotification;
+    },
+    counterparty: async ({ counterparty }, args, { models: { counterpartyModel } }, info) => {
+      const userNotification = await counterpartyModel.findAll( { where: { id: { [Op.in]: counterparty } } } )
       return userNotification;
     },
   },

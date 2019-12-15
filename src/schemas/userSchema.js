@@ -6,6 +6,7 @@ export default gql`
     name: String!
     chatMessage: [ChatMessage!]!
     userNotification: [UserNotification!]!
+    counterparty:[Counterparty]!
   }
 
   type Token {

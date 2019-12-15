@@ -1,8 +1,9 @@
 import chatMessageSchema from './chatMessageSchema';
 import userNotificationSchema from './userNotificationSchema';
 import userSchema from './userSchema';
-import counterpartyTypeSchema from './counterpartyTypeSchema'
+import ownershipTypeSchema from './ownershipTypeSchema'
 import counterpartySchema from './counterpartySchema'
+import transportTypeSchema from './transportTypeSchema'
 
 import { gql } from 'apollo-server';
 
@@ -15,4 +16,12 @@ const linkSchema = gql`
   }
 `;
 
-export default [linkSchema, chatMessageSchema, userNotificationSchema, userSchema, counterpartyTypeSchema, counterpartySchema];
+export default [
+  linkSchema, 
+  chatMessageSchema, 
+  userNotificationSchema,
+  userSchema, 
+  ownershipTypeSchema, 
+  counterpartySchema,
+  transportTypeSchema
+];

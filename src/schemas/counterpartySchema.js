@@ -5,7 +5,15 @@ export default gql`
     id: Int!
     name: String!
     INN: String!
-    type: CounterpartyType!
+    KPP: String
+    OGRN: String
+    OKPO: String
+    railwayCode: String
+    ELS: String
+    address: String
+    foreigner: Boolean
+    ownershipType: OwnershipType!
+    transportTypes:[TransportType]!
   }
 
   extend type Query {
@@ -14,6 +22,6 @@ export default gql`
   }
 
   extend type Mutation {
-    createCounterparty(name: String!, INN: String!, counterpartyTypeId: Int!): Counterparty!
+    createCounterparty(name: String!, INN: String!, KPP: String, OGRN: String, OKPO: String, railwayCode: String, ELS: String, address: String, foreigner: Boolean, ownershipTypeId: Int!): Counterparty!
   }
 `;

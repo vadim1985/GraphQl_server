@@ -23,6 +23,12 @@ const userSchema = new mongoose.Schema({
       ref: 'UserNotification',
     },
   ],
+  counterparty: [
+    {
+      type: Number,
+      required: false,
+    },
+  ],
 });
 
 userSchema.pre('save', function() {

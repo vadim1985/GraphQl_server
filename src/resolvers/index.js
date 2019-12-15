@@ -2,7 +2,15 @@ import chatMessageResolvers from './chatMessageResolvers';
 import userNotificationResolvers from './userNotificationResolvers';
 import userResolvers from './userResolvers';
 import counterpartyResolvers from './counterpartyResolvers';
-import counterpartyTypeResolvers from './counterpartyTypeResolvers';
+import ownershipTypeResolvers from './ownershipTypeResolvers';
+import transportTypeResolvers from './transportTypeResolvers'
 
 
-export default [chatMessageResolvers, userNotificationResolvers, userResolvers, counterpartyResolvers, counterpartyTypeResolvers];
+export default [
+    chatMessageResolvers, 
+    userNotificationResolvers, 
+    userResolvers, 
+    counterpartyResolvers, 
+    ownershipTypeResolvers,
+    transportTypeResolvers
+];

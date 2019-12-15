@@ -9,11 +9,7 @@ import sequelize from './config/postgresConnection'
 import schemas from './schemas';
 import resolvers from './resolvers';
 
-import userModel from './models/userModel';
-import chatMessageModel from './models/chatMessageModel';
-import userNotificationModel from './models/userNotificationModel';
-import counterpartyModel from './models/counterpartyModel';
-import counterpartyTypeModel from './models/counterpartyTypeModel'
+import models from './models';
 
 
 const app = express();
@@ -40,13 +36,7 @@ const server = new ApolloServer({
       const me = await getUser(req);
       return {
         me,
-        models: {
-          userModel,
-          chatMessageModel,
-          userNotificationModel,
-          counterpartyModel,
-          counterpartyTypeModel,
-        },
+        models: models
       };
     }
   },
